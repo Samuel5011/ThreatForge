@@ -5,7 +5,7 @@ from threatforge.models.event import Event
 
 def detect_brute_force(
     events: list[Event],
-    threshold: int = 3,
+    threshold: int = 1,
 ) -> list[str]:
     ip_counts = Counter(
         event.source_ip
