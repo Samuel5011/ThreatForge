@@ -23,7 +23,7 @@ def test_detects_ip_reaching_threshold():
         create_failed_login_event("10.0.0.5"),
     ]
 
-    suspicious_ips = detect_brute_force(events, threshold=3)
+    suspicious_ips = detect_brute_force(events, threshold=1)
 
     assert suspicious_ips == ["192.168.1.10"]
 

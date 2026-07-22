@@ -5,12 +5,19 @@ from threatforge.parser.log_reader import read_auth_log
 def main() :
     events = read_auth_log("sample_logs/auth.log")
 
-    suspicious_ips = detect_brute_force(events)
+    alerts = detect_brute_force(events)
 
-    print("Suspicious IPs:")
+    if alerts:
+        print("Alerts:")
 
-    for ip in suspicious_ips:
-        print(f"- {ip}")
+    for alert in alerts:
+        print(
+            f"_ {alert.source_ip}: "
+            f"{alert.failed_attempts} failed attempts"
+            f"({alert.severity})"
+        )
+    else:
+        print("No alerts detected")
 
 
 if __name__ == "__main__":
