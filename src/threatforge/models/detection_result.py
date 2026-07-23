@@ -1,7 +1,7 @@
-from dataclass import dataclass
+from dataclasses import dataclass
 
 @dataclass
-class DetectionResults:
+class DetectionResult:
     source_ip: str
     detection_type: str
-    occurence_count: int
+    occurrence_count: int

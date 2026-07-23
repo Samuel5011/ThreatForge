@@ -2,7 +2,7 @@ from collections import Counter
 
 from threatforge.models.event import Event
 from threatforge.models.alert import Alert
-
+from threatforge.models.detection_result import DetectionResult
 
 
 def detect_brute_force(
@@ -19,7 +19,7 @@ def detect_brute_force(
         DetectionResult(
             source_ip=ip,
             detection_type="brute_force",
-            orrurence_count=count,
+            occurrence_count=count,
         )
         for ip, count in ip_counts.items()
         if count >= threshold
